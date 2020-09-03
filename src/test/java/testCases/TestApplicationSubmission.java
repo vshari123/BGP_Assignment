@@ -28,7 +28,7 @@ public class TestApplicationSubmission extends TestBase {
 
     @AfterTest
     public void closeDriver() {
-        //teardown();
+        teardown();
     }
 
     @Test
