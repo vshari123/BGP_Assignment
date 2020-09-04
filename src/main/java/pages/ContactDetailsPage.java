@@ -25,6 +25,8 @@ public class ContactDetailsPage extends TestBase {
     private final By jobTitleInSameAsMainContactPerson = By.id("react-contact_info-offeree_designation");
     private final By emailInSameAsMainContactPerson = By.id("react-contact_info-offeree_email");
     private final By previousButtonInContactDetails = By.xpath("//button[contains(text(),'Previous')]");
+    private final By errorNumbers = By.xpath("//span[text()='Contact Details']/../div/span");
+
 //    private final By blockNo = By.xpath("//input[@id='react-contact_info-correspondence_address-block']");
 //    private final By streetAddress = By.xpath("//input[@id='react-contact_info-correspondence_address-street']");
 
@@ -33,6 +35,10 @@ public class ContactDetailsPage extends TestBase {
 
     public String getBlockNo() {
         return getAttribute(blockNoTextBox, "value");
+    }
+
+    public String getErrors(){
+        return getElementText(errorNumbers);
     }
 
     public String getStreetAddress() {

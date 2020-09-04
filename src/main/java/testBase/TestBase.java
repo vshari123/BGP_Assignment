@@ -2,12 +2,18 @@ package testBase;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,6 +23,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.yaml.snakeyaml.Yaml;
 import testUtil.TimeOuts;
 
 public class TestBase {
@@ -24,6 +31,8 @@ public class TestBase {
     public static Properties objProperties;
     public static WebDriverWait wait;
     public static String currentTab;
+    public static ExtentReports extent;
+    public static ExtentTest logger;
 
     /**
      * Base class to initialize properties file
@@ -108,6 +117,9 @@ public class TestBase {
         return driver.findElement(by).getAttribute(attributeName);
     }
 
+    public List<WebElement> findElements(By by){
+        return driver.findElements(by);
+    }
 
     public void switchToNewTab(){
         ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
@@ -132,8 +144,14 @@ public class TestBase {
         driver.findElement(by).sendKeys(Keys.TAB);
     }
 
+    public void clickTabAction(){
+        Actions builder = new Actions(driver);
+        builder.sendKeys(Keys.TAB).build().perform();
+    }
+
     public String getWindowURL(){
         return driver.getCurrentUrl();
     }
+
 
 }

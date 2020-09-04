@@ -23,19 +23,19 @@ public class EligibilityPage extends TestBase {
     private final By saveButton = By.xpath("//*[@id='save-btn']");
     private final By nextButton = By.xpath("//*[@id='next-btn']");
     private final By applicantTurnoverNoWarning = By.xpath("//div[@class='eligibility-advice']/span");
-    public final By faq = By.xpath("//div[@class='eligibility-advice']//a[text()='FAQ']");
-    public final By last3YearsQuestion = By.xpath("//a[text()='target market']/..");
-    public final By last3YearsYesOption = By.xpath("//input[@id='react-eligibility-new_target_market_check-true']/../span[@class='radiobutton']");
+    private final By faq = By.xpath("//div[@class='eligibility-advice']//a[text()='FAQ']");
+    private final By last3YearsQuestion = By.xpath("//a[text()='target market']/..");
+    private final By last3YearsYesOption = By.xpath("//input[@id='react-eligibility-new_target_market_check-true']/../span[@class='radiobutton']");
 
-    public boolean isLast3YearsQuestionDisplayed(){
+    public boolean isLast3YearsQuestionDisplayed() {
         return isElementDisplayed(last3YearsQuestion);
     }
 
-    public void clickLast3YearsYesOption(){
+    public void clickLast3YearsYesOption() {
         clickElement(last3YearsYesOption);
     }
 
-    public void clickFAQ(){
+    public void clickFAQ() {
         clickElement(faq);
     }
 
@@ -60,7 +60,7 @@ public class EligibilityPage extends TestBase {
         return isElementDisplayed(isTheApplicantRegistered);
     }
 
-    public boolean isWarningDisplayed(){
+    public boolean isWarningDisplayed() {
         return isElementDisplayed(applicantTurnoverNoWarning);
     }
 

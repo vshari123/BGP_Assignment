@@ -1,7 +1,10 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import testBase.TestBase;
+
+import java.util.List;
 
 public class HomePage extends TestBase {
 
@@ -12,6 +15,7 @@ public class HomePage extends TestBase {
     private final By getNewGrant = By.xpath("//h4[contains(text(),'Get new grant')]");
     private final By processingTab = By.xpath("//a[contains(text(),'Processing')]");
     private final By myGrants = By.xpath("//a[text()='My Grants']");
+    private final By refIDs = By.xpath("//table[@id='db-apps-processing']//tbody/tr/td[1]");
 
     public void clickLogout() {
         clickElement(logoutButton);
@@ -45,9 +49,16 @@ public class HomePage extends TestBase {
         clickElement(processingTab);
     }
 
+    public boolean validateRefID(String refID) {
+        for (WebElement element : findElements(refIDs)) {
+            if (element.getText().equalsIgnoreCase(refID)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-
-    public void clickMyGrants(){
+    public void clickMyGrants() {
         clickElement(myGrants);
     }
 }

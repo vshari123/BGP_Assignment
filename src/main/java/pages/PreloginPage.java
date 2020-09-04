@@ -17,20 +17,20 @@ public class PreloginPage extends TestBase {
         clickElement(loginButtonInStub);
     }
 
-    public void selectOptionInRole() {
-        selectOption(roleDropdown, "Acceptor");
+    public void selectOptionInRole(String role) {
+        selectOption(roleDropdown, role);
     }
 
-    public void enterTextInUIN() {
-        enterText(UENTextBox, "123456");
+    public void enterTextInUIN(String uin) {
+        enterText(UENTextBox, uin);
     }
 
     public void enterTextInName(String name) {
         enterText(nameTextBox, name);
     }
 
-    public void enterTextInNRIC() {
-        enterText(NRICTextBox, "G3065824N");
+    public void enterTextInNRIC(String nric) {
+        enterText(NRICTextBox, nric);
     }
 
     public boolean isPageHeaderDisplayed() {

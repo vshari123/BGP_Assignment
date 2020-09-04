@@ -16,6 +16,11 @@ public class ProposalPage extends TestBase {
     //private final By outsideSingaporeText = By.xpath("//label[contains(text(),'Is this the first tim");
     private final By outsideSingaporeYes = By.xpath("//input[@id='react-project-is_first_time_expand-true']/../span[@class='radiobutton']");
     //private final By outsideSingaporeNo = By.xpath("//input[@id='react-project-is_first_time_expand-false']/../span[@class='radiobutton']");
+    private final By errors = By.xpath("//span[text()='Proposal']/following-sibling::div/span");
+
+    public String getErrors(){
+        return getElementText(errors);
+    }
 
     public boolean isSectionHeaderDisplayed() {
         waitForElement(sectionHeader);
@@ -47,14 +52,16 @@ public class ProposalPage extends TestBase {
         //clickElement(activity);
         enterText(activity, varActivity);
         driverWait();
-        clickTabKey(activity);
+        clickTabAction();
+        //clickTabKey(activity);
     }
 
     public void enterTargetMarket(String varTargetMarket) {
         //clickElement(targetMarket);
         enterText(targetMarket, varTargetMarket);
         driverWait();
-        clickTabKey(targetMarket);
+        clickTabAction();
+        //clickTabKey(targetMarket);
     }
 
     /*public boolean isOutsideSingaporeTextIsDisplayed() {

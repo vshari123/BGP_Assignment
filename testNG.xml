@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BGP Assignment" parallel="false" thread-count="1">
+    <test name="User story 1">
+        <classes>
+            <class name="testCases.TestCase">
+                <methods>
+                    <include name="userLoginToLandingPage"></include>
+                    <include name="grantSelections"></include>
+                    <include name="eligibilityPageWrongURL"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="User story 2">
+        <classes>
+            <class name="testCases.TestCase">
+                <methods>
+                    <include name="userLoginToLandingPage"></include>
+                    <include name="grantSelections"></include>
+                    <include name="eligibilityPage"></include>
+                    <include name="contactDetailsFullUpdatePage"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="User story 3">
+        <classes>
+            <class name="testCases.TestCase">
+                <methods>
+                    <include name="userLoginToLandingPage"></include>
+                    <include name="grantSelections"></include>
+                    <include name="eligibilityPage"></include>
+                    <include name="contactDetailsPagePartialUpdate"></include>
+                    <include name="proposalPage"></include>
+                    <include name="businessImpactPage"></include>
+                    <include name="costPage"></include>
+                    <include name="declareAndReview"></include>
+                    <include name="errorValidationAndCorrection"></include>
+                    <include name="reviewAndSubmit"></include>
+                    <include name="validateReferenceNumber"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
