@@ -10,8 +10,6 @@ public class CostPage extends TestBase {
     private final By addNewItemButton = By.xpath("//button[@id='react-project_cost-salaries-add-item']");
     private final By name = By.xpath("//*[@id='react-project_cost-salaries-0-name']");
     private final By designation = By.xpath("//*[@id='react-project_cost-salaries-0-designation']");
-//    private final By NRICInNewItem = By.xpath("//*[@id='react-project_cost-salaries-0-nric']");
-//    private final By nationality = By.xpath("//*[@id='react-select-project_cost-salaries-0-nationality--value']/div[1]");
     private final By roleInProject = By.xpath("//*[@id='react-project_cost-salaries-0-project_role']");
     private final By projectInvolvementTextBox = By.xpath("//*[@id='react-project_cost-salaries-0-involvement_months']");
     private final By monthlySalaryTextBox = By.xpath("//*[@id='react-project_cost-salaries-0-salary_in_billing_currency']");
@@ -40,13 +38,6 @@ public class CostPage extends TestBase {
         enterText(designation, varDesignation);
     }
 
-   /* public void enterNRICInNewItem(String varNRIC) {
-        enterText(NRICInNewItem, varNRIC);
-    }
-
-    public void selectNationalityInNewItem() {
-        selectOption(nationality, "Indian");
-    }*/
 
     public void enterRole(String varRole) {
         enterText(roleInProject, varRole);

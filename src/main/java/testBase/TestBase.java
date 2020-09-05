@@ -1,14 +1,12 @@
 package testBase;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
 
+import java.io.FileInputStream;
+
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -16,14 +14,14 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.yaml.snakeyaml.Yaml;
+
 import testUtil.TimeOuts;
 
 public class TestBase {
@@ -44,8 +42,8 @@ public class TestBase {
                     System.getProperty("user.dir") + "\\src\\main\\resources\\config\\config.properties");
             objProperties.load(objFileInputStream);
 
-        } catch (Exception e) {
-            e.getMessage();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -65,7 +63,7 @@ public class TestBase {
             driver = new FirefoxDriver();
         }
 
-        wait = new WebDriverWait(driver,TimeOuts.PAGE_LOAD_TIMEOUT);
+        wait = new WebDriverWait(driver, TimeOuts.PAGE_LOAD_TIMEOUT);
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(TimeOuts.IMPLICIT_WAIT, TimeUnit.SECONDS);
@@ -109,47 +107,46 @@ public class TestBase {
         return driver.findElement(by).getText();
     }
 
-    public void waitForElement(By by){
+    public void waitForElement(By by) {
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(by)));
     }
 
-    public String getAttribute(By by,String attributeName){
+    public String getAttribute(By by, String attributeName) {
         return driver.findElement(by).getAttribute(attributeName);
     }
 
-    public List<WebElement> findElements(By by){
+    public List<WebElement> findElements(By by) {
         return driver.findElements(by);
     }
 
-    public void switchToNewTab(){
+    public void switchToNewTab() {
         ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(newTab.get(1));
     }
 
-    public void driverWait(){
-        try{
+    public void driverWait() {
+        try {
             Thread.sleep(3000);
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
 
-
-    public void switchToPreviousTab(){
+    public void switchToPreviousTab() {
         driver.switchTo().window(currentTab);
     }
 
-    public void clickTabKey(By by){
+    public void clickTabKey(By by) {
         driver.findElement(by).sendKeys(Keys.TAB);
     }
 
-    public void clickTabAction(){
+    public void clickTabAction() {
         Actions builder = new Actions(driver);
         builder.sendKeys(Keys.TAB).build().perform();
     }
 
-    public String getWindowURL(){
+    public String getWindowURL() {
         return driver.getCurrentUrl();
     }
 

@@ -3,10 +3,7 @@ package testCases;
 import com.relevantcodes.extentreports.LogStatus;
 import org.testng.Assert;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pages.*;
 import testBase.TestBase;
 import testUtil.Datastore;
@@ -30,8 +27,9 @@ public class TestCase extends TestBase {
     ExtentReport objExtentReport = new ExtentReport();
 
     @BeforeTest
-    public void initializeDriver() {
-        objExtentReport.initializeTest(this.getClass().getName());
+    @Parameters(value = { "testName" } )
+    public void initializeDriver(String testName) {
+        objExtentReport.initializeTest(testName);
         initialize();
     }
 
@@ -233,7 +231,7 @@ public class TestCase extends TestBase {
         Assert.assertEquals(objReviewVerification.getDeclareReviewSuccess(), objDatastore.getTestData("declareReviewSuccess"));
         objReviewVerification.clickAcknowledgement();
         objReviewVerification.clickSubmit();
-        objReviewVerification.isSubmitSuccessHeaderDisplayed();
+        Assert.assertTrue(objReviewVerification.isSubmitSuccessHeaderDisplayed());
     }
 
     @Test

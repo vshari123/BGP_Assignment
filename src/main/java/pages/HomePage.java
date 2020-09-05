@@ -4,12 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import testBase.TestBase;
 
-import java.util.List;
+
 
 public class HomePage extends TestBase {
 
-    private final By logoutButton = By.xpath("//span[contains(text(),'LOG OUT')]");
-    private final By userName = By.className("username");
     private final By applicationsTab = By.xpath("//a[contains(text(),'Applications')]");
     private final By applicationTabParent = By.xpath("//a[contains(text(),'Applications')]/..");
     private final By getNewGrant = By.xpath("//h4[contains(text(),'Get new grant')]");
@@ -17,13 +15,6 @@ public class HomePage extends TestBase {
     private final By myGrants = By.xpath("//a[text()='My Grants']");
     private final By refIDs = By.xpath("//table[@id='db-apps-processing']//tbody/tr/td[1]");
 
-    public void clickLogout() {
-        clickElement(logoutButton);
-    }
-
-    public String getUserNameText() {
-        return getElementText(userName);
-    }
 
     public boolean checkApplicationsTabSelected() {
         try {
