@@ -29,7 +29,7 @@ In order to utilise this project you need to have the following installed locall
 * TestNG tests (test cases) are designed in src/test/java/testCases package. Each of the page in the flow is handled as a seperate test in the TestCase class. This class also contains integration with Extent reports; report will get updated based on the result of each @Test method in this class. 
 * Test Data for this project is provided in the TestData.yaml file under src/main/java/resources/testData package. Datastore class under testUtil package will read this yaml file and pass data at runtime. In case of need to modify data, it has to be done in the TestData.yaml file.
 * Driver executables required for execution are present in src/main/java/resources/drivers package
-* config.properties file in src/main/java/resources/config package contains basic properties such as application url, driver path, etc.
+* config.properties file in src/main/java/resources/config package contains basic properties such as application url, driver selection, driver path, etc.
 * pom.xml contains all the dependencies required for the project.
 
 
