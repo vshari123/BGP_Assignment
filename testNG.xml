@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="BGP Assignment" parallel="false" thread-count="1">
-    <test name="User story 1" enabled="false">
+    <test name="User story 1">
         <parameter name="testName" value="User Story 1"/>
         <classes>
             <class name="testCases.TestCase">
@@ -13,7 +13,7 @@
             </class>
         </classes>
     </test>
-    <test name="User story 2" enabled="false">
+    <test name="User story 2">
         <parameter name="testName" value="User Story 2"/>
         <classes>
             <class name="testCases.TestCase">

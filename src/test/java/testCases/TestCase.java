@@ -89,6 +89,7 @@ public class TestCase extends TestBase {
         objEligibilityPage.clickIsTheApplicantTurnoverNo();
         Assert.assertTrue(objEligibilityPage.isWarningDisplayed());
         objEligibilityPage.clickFAQ();
+        driverWait();
         switchToNewTab();
         Assert.assertEquals(getWindowURL(), objDatastore.getTestData("correctFAQURL"));
         switchToPreviousTab();
@@ -203,7 +204,9 @@ public class TestCase extends TestBase {
         Assert.assertEquals(objProposalPage.getErrors(), objDatastore.getTestData("proposalPageErrors"));
         objProposalPage.enterProjectTitle(objDatastore.getTestData("projectTitle"));
         objProposalPage.enterProjectDescription(objDatastore.getTestData("projectDescription"));
+        driverWait();
         objDeclareReviewPage.clickDeclareAndReviewTab();
+        driverWait();
         objDeclareReviewPage.clickReviewButton();
         Assert.assertTrue(objReviewVerification.isCompanyProfileHeaderDisplayed());
         Assert.assertTrue(objReviewVerification.isCompanyUENDisplayed());

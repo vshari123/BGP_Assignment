@@ -72,4 +72,5 @@ public class ReviewVerification extends TestBase {
     public String getAgencyDetails(){
         return getElementText(agencyDetails);
     }
+
 }
